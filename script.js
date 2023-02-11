@@ -19,14 +19,19 @@
  
 **/
 
-
+const scoreCounter = document.getElementById("score");
 const board = document.getElementById("board");
 const scrnWdth = window.innerWidth;
 const scrnHght = window.innerHeight;
 
 let score = 0;
 let counter = 0;
+let dead = false;
+let distance = 0;
+let mouseX = -100;
+let mouseY = -100;
 let started = false;
+
 
 let circle = [
 	{ x: -100, y: -100, size: 1, speed: 1 },
@@ -55,12 +60,19 @@ function getRandomNum(min, max) {
 }
 
 
-
 // Listen for clicks
 document.addEventListener("click", function() {
+	scoreCounter.innerHTML = score;
 	started = true;
 });
 
+// Get mouse position
+document.addEventListener('mousemove', (event) => {
+	mouseX = event.clientX-12.5;
+	mouseY = event.clientY-13.5;
+	document.getElementById("mouse").style.marginLeft = mouseX + 'px';
+  document.getElementById("mouse").style.marginTop = mouseY + 'px';
+});
 
 function draw() {
 	// Reset board 
@@ -70,12 +82,11 @@ function draw() {
 	for (let i = 0; i < circle.length; i++) {
 		let circ = document.createElement("div");
 
-
 		if (started) {
 			// Update variables
 			circle[i].y += circle[i].speed;
 
-			if (circle[i].y >= scrnHght) {
+			if (circle[i].y >= scrnHght+100) {
 				circle[i].speed = getRandomNum(1, 5);
 				circle[i].size = getRandomInt(1, 10);
 				circle[i].y = -100;
@@ -85,11 +96,11 @@ function draw() {
 
 		// Draw the circles
 		circ.classList.add("circle-unit");
-		circ.style.marginLeft = circle[i].x + "px";
-		circ.style.marginTop = circle[i].y + "px";
+		circ.style.marginLeft = (circle[i].x)-(circle[i].size/2) + "px";
+		circ.style.marginTop = (circle[i].y)-(circle[i].size/2) + "px";
 		circ.style.width = (circle[i].size * 10) + "px";
 		circ.style.height = (circle[i].size * 10) + "px";
-		circ.style.opacity = (circle[i].speed/5);
+		circ.style.opacity = 0.8;
 		board.appendChild(circ);
 	}
 }
@@ -97,10 +108,19 @@ function draw() {
 setInterval(() => {
 	if (counter == 100) {
 		counter = 0;
-		score++;
+		if (started && !dead) {
+			score++;
+			scoreCounter.innerHTML = score;
+		}
+		circle.push({ x: -100, y: -100, size: 1, speed: 15 });
 	}
 	else {
 		counter++;
 	}
+
+	if (dead) {
+		scoreCounter.style.color = "#303080"
+	}
+	
 	draw();
 }, 10);
