@@ -1,3 +1,8 @@
+@font-face {
+  font-family: lemon-milk;
+  src: url(lemonmilk.woff);
+}
+
 html, body {
 	position: fixed;
   background-color: #282f33;
