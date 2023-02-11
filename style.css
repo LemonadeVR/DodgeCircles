@@ -1,0 +1,15 @@
+html, body {
+	position: fixed;
+	overflow: hidden;
+  background-color: #282f33;
+}
+
+.circle-unit {
+	background-color: white;
+	border-radius: 50%;
+}
+
+#board {
+	position: fixed;
+	overflow: hidden;
+}
