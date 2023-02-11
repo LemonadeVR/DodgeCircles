@@ -22,28 +22,34 @@ const board = document.getElementById("board");
 const scrnWdth = window.innerWidth;
 const scrnHght = window.innerHeight;
 
+let score = 0;
+let counter = 0;
 let started = false;
 
 let circle = [
-	{ x: -10, y: -100, size: 1, speed: 1 },
-	{ x: -10, y: -100, size: 1, speed: 2 },
-	{ x: -10, y: -100, size: 1, speed: 3 },
-	{ x: -10, y: -100, size: 1, speed: 4 },
-	{ x: -10, y: -100, size: 1, speed: 5 },
-	{ x: -10, y: -100, size: 1, speed: 6 },
-	{ x: -10, y: -100, size: 1, speed: 7 },
-	{ x: -10, y: -100, size: 1, speed: 8 },
-	{ x: -10, y: -100, size: 1, speed: 9 },
-	{ x: -10, y: -100, size: 1, speed: 10 },
-	{ x: -10, y: -100, size: 1, speed: 11 },
-	{ x: -10, y: -100, size: 1, speed: 12 },
-	{ x: -10, y: -100, size: 1, speed: 13 },
-	{ x: -10, y: -100, size: 1, speed: 14 },
-	{ x: -10, y: -100, size: 1, speed: 15 }
+	{ x: -100, y: -100, size: 1, speed: 1 },
+	{ x: -100, y: -100, size: 1, speed: 2 },
+	{ x: -100, y: -100, size: 1, speed: 3 },
+	{ x: -100, y: -100, size: 1, speed: 4 },
+	{ x: -100, y: -100, size: 1, speed: 5 },
+	{ x: -100, y: -100, size: 1, speed: 6 },
+	{ x: -100, y: -100, size: 1, speed: 7 },
+	{ x: -100, y: -100, size: 1, speed: 8 },
+	{ x: -100, y: -100, size: 1, speed: 9 },
+	{ x: -100, y: -100, size: 1, speed: 10 },
+	{ x: -100, y: -100, size: 1, speed: 11 },
+	{ x: -100, y: -100, size: 1, speed: 12 },
+	{ x: -100, y: -100, size: 1, speed: 13 },
+	{ x: -100, y: -100, size: 1, speed: 14 },
+	{ x: -100, y: -100, size: 1, speed: 15 }
 ];
 
 function getRandomInt(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function getRandomNum(min, max) {
+	return Math.random() * (max - min + 1) + min;
 }
 
 
@@ -68,7 +74,7 @@ function draw() {
 			circle[i].y += circle[i].speed;
 
 			if (circle[i].y >= scrnHght) {
-				circle[i].speed = getRandomInt(1, 3);
+				circle[i].speed = getRandomNum(1, 5);
 				circle[i].size = getRandomInt(1, 10);
 				circle[i].y = -100;
 				circle[i].x = getRandomInt(0, scrnWdth - circle[i].size);
@@ -81,10 +87,18 @@ function draw() {
 		circ.style.marginTop = circle[i].y + "px";
 		circ.style.width = (circle[i].size * 10) + "px";
 		circ.style.height = (circle[i].size * 10) + "px";
+		circ.style.opacity = (circle[i].speed/5);
 		board.appendChild(circ);
 	}
 }
 
 setInterval(() => {
+	if (counter == 100) {
+		counter = 0;
+		score++;
+	}
+	else {
+		counter++;
+	}
 	draw();
 }, 10);

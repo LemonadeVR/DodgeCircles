@@ -4,6 +4,7 @@ html, body {
 }
 
 .circle-unit {
+	position: fixed;
 	background-color: white;
 	border-radius: 50%;
 }
