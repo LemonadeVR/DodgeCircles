@@ -1,6 +1,6 @@
 # DodgeCircles
 
-## Overview
+## How to play
 The objective is to use your cursor to avoid circles that are falling from the top of the screen to the bottom. The circles come in different sizes and move at different speeds, making it increasingly difficult to dodge them as the game goes on. The game starts when the player clicks on the screen. The player must move their cursor to prevent the circles from hitting them and try to last as long as possible without being hit.
 
 ## Known Bugs
