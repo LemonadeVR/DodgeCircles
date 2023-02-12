@@ -77,7 +77,10 @@ document.addEventListener("click", function() {
 		{ x: -100, y: -100, size: 1, speed: 8 },
 		{ x: -100, y: -100, size: 1, speed: 9 },
 		{ x: -100, y: -100, size: 1, speed: 10 }
-	];
+];
+
+	scoreCounter.style.color = "";
+	scoreCounter.innerHTML = 0;
 });
 
 /**
