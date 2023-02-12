@@ -37,12 +37,7 @@ let circle = [
 	{ x: -100, y: -100, size: 1, speed: 2 },
 	{ x: -100, y: -100, size: 1, speed: 3 },
 	{ x: -100, y: -100, size: 1, speed: 4 },
-	{ x: -100, y: -100, size: 1, speed: 5 },
-	{ x: -100, y: -100, size: 1, speed: 6 },
-	{ x: -100, y: -100, size: 1, speed: 7 },
-	{ x: -100, y: -100, size: 1, speed: 8 },
-	{ x: -100, y: -100, size: 1, speed: 9 },
-	{ x: -100, y: -100, size: 1, speed: 10 }
+	{ x: -100, y: -100, size: 1, speed: 5 }
 ];
 
 function getRandomInt(min, max) {
