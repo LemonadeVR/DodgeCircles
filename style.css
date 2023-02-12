@@ -10,7 +10,7 @@ html, body {
 	font-family: lemon-milk;
 	display: flex;
 	overflow: hidden;
-	cursor: none;
+	cursor: default;
 	color: #3986c0;
   background-color: #282f33;
 }
@@ -28,7 +28,7 @@ html, body {
 	border-radius: 50%;
 	width: 10px;
 	height: 10px;
-	z-index: 2;
+	z-index: -1;
 }
 
 #board {

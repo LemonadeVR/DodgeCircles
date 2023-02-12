@@ -66,6 +66,7 @@ document.addEventListener("click", function() {
 	started = true;
 });
 
+/**
 // Get mouse position
 document.addEventListener('mousemove', (event) => {
 	mouseX = event.clientX-12.5;
@@ -73,6 +74,7 @@ document.addEventListener('mousemove', (event) => {
 	document.getElementById("mouse").style.marginLeft = mouseX + 'px';
   document.getElementById("mouse").style.marginTop = mouseY + 'px';
 });
+**/
 
 function draw() {
 	// Reset board 

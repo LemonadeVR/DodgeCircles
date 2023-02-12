@@ -11,6 +11,7 @@ The objective is to use your cursor to avoid circles that are falling from the t
 - "Click to start" text
 - Tutorial?
 - Restart feature
+- Custom cursor
 
 ### Done
 - Add score counter - 1 per second
