@@ -1,10 +1,9 @@
 /** 
-
 	_____ _   _ ______ ____  
  |_   _| \ | |  ____/ __ \ 
-   | | |  \| | |__ | |  | |
-   | | | . ` |  __|| |  | |
-  _| |_| |\  | |   | |__| |
+	 | | |  \| | |__ | |  | |
+	 | | | . ` |  __|| |  | |
+	_| |_| |\  | |   | |__| |
  |_____|_| \_|_|    \____/
 
 
@@ -43,12 +42,7 @@ let circle = [
 	{ x: -100, y: -100, size: 1, speed: 7 },
 	{ x: -100, y: -100, size: 1, speed: 8 },
 	{ x: -100, y: -100, size: 1, speed: 9 },
-	{ x: -100, y: -100, size: 1, speed: 10 },
-	{ x: -100, y: -100, size: 1, speed: 11 },
-	{ x: -100, y: -100, size: 1, speed: 12 },
-	{ x: -100, y: -100, size: 1, speed: 13 },
-	{ x: -100, y: -100, size: 1, speed: 14 },
-	{ x: -100, y: -100, size: 1, speed: 15 }
+	{ x: -100, y: -100, size: 1, speed: 10 }
 ];
 
 function getRandomInt(min, max) {
@@ -64,6 +58,26 @@ function getRandomNum(min, max) {
 document.addEventListener("click", function() {
 	scoreCounter.innerHTML = score;
 	started = true;
+
+	score = 0;
+	counter = 0;
+	dead = false;
+	distance = 0;
+	mouseX = -100;
+	mouseY = -100;
+
+	circle = [
+		{ x: -100, y: -100, size: 1, speed: 1 },
+		{ x: -100, y: -100, size: 1, speed: 2 },
+		{ x: -100, y: -100, size: 1, speed: 3 },
+		{ x: -100, y: -100, size: 1, speed: 4 },
+		{ x: -100, y: -100, size: 1, speed: 5 },
+		{ x: -100, y: -100, size: 1, speed: 6 },
+		{ x: -100, y: -100, size: 1, speed: 7 },
+		{ x: -100, y: -100, size: 1, speed: 8 },
+		{ x: -100, y: -100, size: 1, speed: 9 },
+		{ x: -100, y: -100, size: 1, speed: 10 }
+	];
 });
 
 /**
@@ -72,7 +86,7 @@ document.addEventListener('mousemove', (event) => {
 	mouseX = event.clientX-12.5;
 	mouseY = event.clientY-13.5;
 	document.getElementById("mouse").style.marginLeft = mouseX + 'px';
-  document.getElementById("mouse").style.marginTop = mouseY + 'px';
+	document.getElementById("mouse").style.marginTop = mouseY + 'px';
 });
 **/
 
@@ -88,7 +102,7 @@ function draw() {
 			// Update variables
 			circle[i].y += circle[i].speed;
 
-			if (circle[i].y >= scrnHght+100 && !dead) {
+			if (circle[i].y >= scrnHght + 100 && !dead) {
 				circle[i].speed = getRandomNum(1, 5);
 				circle[i].size = getRandomInt(1, 10);
 				circle[i].y = -100;
@@ -98,13 +112,13 @@ function draw() {
 
 		// Draw the circles
 		circ.classList.add("circle-unit");
-		circ.style.marginLeft = (circle[i].x)-(circle[i].size/2) + "px";
-		circ.style.marginTop = (circle[i].y)-(circle[i].size/2) + "px";
+		circ.style.marginLeft = (circle[i].x) - (circle[i].size / 2) + "px";
+		circ.style.marginTop = (circle[i].y) - (circle[i].size / 2) + "px";
 		circ.style.width = (circle[i].size * 10) + "px";
 		circ.style.height = (circle[i].size * 10) + "px";
-		circ.style.opacity = circle[i].speed/5;
+		circ.style.opacity = circle[i].speed / 5;
 		circ.style.zIndex = 1;
-		
+
 		if (dead) {
 			circ.style.backgroundColor = "#ffcccc";
 		}
@@ -132,6 +146,6 @@ setInterval(() => {
 	if (dead) {
 		scoreCounter.style.color = "#903030"
 	}
-	
+
 	draw();
 }, 10);
