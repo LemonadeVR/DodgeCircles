@@ -10,13 +10,13 @@ The objective is to use your cursor to avoid circles that are falling from the t
 ### To Do List
 - "Click to start" text
 - Tutorial?
-- Restart feature
 - Custom cursor
 
 ### Done
 - Add score counter - 1 per second
 - Add a check if the player touches a circle
 - Stops counter when hit
+- Restart feature
 
 ## Website Link
 https://dodgecircles.lemonadevr.repl.co/
