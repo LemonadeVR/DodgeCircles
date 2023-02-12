@@ -102,8 +102,9 @@ function draw() {
 		circ.style.marginTop = (circle[i].y)-(circle[i].size/2) + "px";
 		circ.style.width = (circle[i].size * 10) + "px";
 		circ.style.height = (circle[i].size * 10) + "px";
-		circ.style.opacity = 0.8;
+		circ.style.opacity = circle[i].speed/5;
 		circ.style.zIndex = 1;
+		
 		if (dead) {
 			circ.style.backgroundColor = "#ffcccc";
 		}
