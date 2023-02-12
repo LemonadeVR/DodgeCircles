@@ -86,7 +86,7 @@ function draw() {
 			// Update variables
 			circle[i].y += circle[i].speed;
 
-			if (circle[i].y >= scrnHght+100) {
+			if (circle[i].y >= scrnHght+100 && !dead) {
 				circle[i].speed = getRandomNum(1, 5);
 				circle[i].size = getRandomInt(1, 10);
 				circle[i].y = -100;
@@ -101,7 +101,15 @@ function draw() {
 		circ.style.width = (circle[i].size * 10) + "px";
 		circ.style.height = (circle[i].size * 10) + "px";
 		circ.style.opacity = 0.8;
+		circ.style.zIndex = 1;
+		if (dead) {
+			circ.style.backgroundColor = "#ffcccc";
+		}
 		board.appendChild(circ);
+
+		circ.addEventListener("mouseover", function() {
+			dead = true
+		});
 	}
 }
 
@@ -119,7 +127,7 @@ setInterval(() => {
 	}
 
 	if (dead) {
-		scoreCounter.style.color = "#303080"
+		scoreCounter.style.color = "#903030"
 	}
 	
 	draw();

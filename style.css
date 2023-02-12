@@ -1,4 +1,5 @@
 @font-face {
+	font-weight: normal;
   font-family: lemon-milk;
   src: url(lemonmilk.woff);
 }
@@ -18,6 +19,7 @@ html, body {
 	position: fixed;
 	background-color: white;
 	border-radius: 50%;
+	z-index: 1;
 }
 
 #mouse {
@@ -26,6 +28,7 @@ html, body {
 	border-radius: 50%;
 	width: 10px;
 	height: 10px;
+	z-index: 2;
 }
 
 #board {
@@ -39,3 +42,4 @@ html, body {
 	margin-top: 12px;
 	margin-left: 100px;
 }
+
