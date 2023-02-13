@@ -11,13 +11,13 @@ The objective is to use your cursor to avoid circles that are falling from the t
 - "Click to start" text
 - Tutorial?
 - Custom cursor
-- Anti cheat
 
 ### Done
 - Add score counter - 1 per second
 - Add a check if the player touches a circle
 - Stops counter when hit
 - Restart feature
+- Anti cheat
 
 ## Website Link
 https://dodgecircles.lemonadevr.repl.co/

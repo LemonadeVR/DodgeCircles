@@ -18,6 +18,7 @@
  
 **/
 
+const antiCheat = document.getElementById("anticheat");
 const scoreCounter = document.getElementById("score");
 const board = document.getElementById("board");
 const scrnWdth = window.innerWidth;
@@ -33,7 +34,16 @@ let started = false;
 
 
 let circle = [
-	{}
+	{ x: -100, y: -100, size: 1, speed: 1 },
+	{ x: -100, y: -100, size: 1, speed: 2 },
+	{ x: -100, y: -100, size: 1, speed: 3 },
+	{ x: -100, y: -100, size: 1, speed: 4 },
+	{ x: -100, y: -100, size: 1, speed: 5 },
+	{ x: -100, y: -100, size: 1, speed: 6 },
+	{ x: -100, y: -100, size: 1, speed: 7 },
+	{ x: -100, y: -100, size: 1, speed: 8 },
+	{ x: -100, y: -100, size: 1, speed: 9 },
+	{ x: -100, y: -100, size: 1, speed: 10 }
 ];
 
 function getRandomInt(min, max) {
@@ -62,14 +72,19 @@ document.addEventListener("click", function() {
 		{ x: -100, y: -100, size: 1, speed: 2 },
 		{ x: -100, y: -100, size: 1, speed: 3 },
 		{ x: -100, y: -100, size: 1, speed: 4 },
-		{ x: -100, y: -100, size: 1, speed: 5 }
+		{ x: -100, y: -100, size: 1, speed: 5 },
+		{ x: -100, y: -100, size: 1, speed: 6 },
+		{ x: -100, y: -100, size: 1, speed: 7 },
+		{ x: -100, y: -100, size: 1, speed: 8 },
+		{ x: -100, y: -100, size: 1, speed: 9 },
+		{ x: -100, y: -100, size: 1, speed: 10 }
 ];
 
 	scoreCounter.style.color = "";
 	scoreCounter.innerHTML = 0;
 });
 
-/**
+
 // Get mouse position
 document.addEventListener('mousemove', (event) => {
 	mouseX = event.clientX-12.5;
@@ -77,7 +92,15 @@ document.addEventListener('mousemove', (event) => {
 	document.getElementById("mouse").style.marginLeft = mouseX + 'px';
 	document.getElementById("mouse").style.marginTop = mouseY + 'px';
 });
-**/
+
+
+antiCheat.onmouseout = function(e) {
+  e = e ? e : window.event;
+  var from = e.relatedTarget || e.toElement;
+  if (!from || from.nodeName == "HTML") {
+    dead = true;
+  }
+};
 
 function draw() {
 	// Reset board 
@@ -95,7 +118,7 @@ function draw() {
 				circle[i].speed = getRandomNum(1, 5);
 				circle[i].size = getRandomInt(1, 10);
 				circle[i].y = -100;
-				circle[i].x = getRandomInt(0, scrnWdth - circle[i].size);
+				circle[i].x = getRandomInt(-100, scrnWdth +100);
 			}
 		}
 
